@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VoxFlow AI | Akıllı Otomasyon Çözümleri - Dağhan Necati Şengül</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="LOGO-removebg-preview.png">
+    <link rel="apple-touch-icon" href="LOGO-removebg-preview.png">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -21,9 +26,6 @@
             --warning: #f59e0b;
             --dark: #0f0f23;
             --darker: #050510;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
 
         body {
@@ -108,45 +110,32 @@
             font-weight: 900;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             cursor: pointer;
             letter-spacing: -1px;
         }
 
         .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 26px;
             animation: logoFloat 3s ease-in-out infinite;
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
             position: relative;
-            overflow: hidden;
+            font-size: 32px;
         }
 
-        .logo-icon::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 20px rgba(99, 102, 241, 0.4));
         }
 
         @keyframes logoFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(3deg); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
         }
 
         .nav-menu {
@@ -397,6 +386,13 @@
             align-items: center;
             justify-content: center;
             font-size: 32px;
+            overflow: hidden;
+        }
+
+        .chat-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .chat-status {
@@ -573,404 +569,6 @@
             font-size: 18px;
         }
 
-        .payment-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(15px);
-            z-index: 10000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .payment-modal.active {
-            display: flex;
-        }
-
-        .payment-content {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 30px;
-            padding: 50px;
-            max-width: 600px;
-            width: 90%;
-            animation: modalSlide 0.5s ease;
-            position: relative;
-        }
-
-        @keyframes modalSlide {
-            from { opacity: 0; transform: translateY(-60px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .payment-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .payment-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
-        }
-
-        .iban-box {
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px dashed rgba(99, 102, 241, 0.5);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 25px 0;
-            text-align: center;
-        }
-
-        .iban-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 10px;
-        }
-
-        .iban-number {
-            font-family: 'Space Grotesk', monospace;
-            font-size: 20px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 2px;
-            margin: 10px 0;
-        }
-
-        .copy-btn {
-            padding: 12px 30px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s;
-        }
-
-        .copy-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
-        }
-
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 35px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            border: none;
-            border-radius: 14px;
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
-        }
-
-        .demo-section {
-            padding: 150px 5%;
-            min-height: 100vh;
-        }
-
-        .demo-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .demo-controls {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-        }
-
-        .demo-controls h3 {
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
-
-        .control-group {
-            margin-bottom: 25px;
-        }
-
-        .control-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .control-group input, 
-        .control-group select,
-        .control-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: white;
-            font-size: 16px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .control-group select option {
-            background: #1a1a2e;
-            color: white;
-            padding: 10px;
-        }
-
-        .control-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .control-group input:focus,
-        .control-group select:focus,
-        .control-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .demo-chat {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 30px;
-            height: 600px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .demo-messages {
-            flex: 1;
-            overflow-y: auto;
-            margin-bottom: 20px;
-            padding-right: 10px;
-        }
-
-        .demo-messages::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .demo-messages::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-        }
-
-        .demo-messages::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
-        }
-
-        .demo-input-area {
-            display: flex;
-            gap: 10px;
-        }
-
-        .demo-input {
-            flex: 1;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: white;
-        }
-
-        .demo-send-btn {
-            padding: 15px 30px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .contact-page {
-            padding: 150px 5%;
-            min-height: 100vh;
-        }
-
-        .contact-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            display: flex;
-            gap: 20px;
-            align-items: start;
-        }
-
-        .info-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: white;
-            font-size: 16px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: none;
-            border-radius: 14px;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 45px rgba(99, 102, 241, 0.6);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 10000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 60px;
-            text-align: center;
-            max-width: 500px;
-            animation: modalSlide 0.5s ease;
-        }
-
-        .modal-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 30px;
-            background: linear-gradient(135deg, var(--success), #34d399);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-        }
-
-        .modal-content h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        .modal-content p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 30px;
-        }
-
-        .modal-btn {
-            padding: 15px 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
         footer {
             padding: 80px 5% 40px;
             background: rgba(255, 255, 255, 0.01);
@@ -992,8 +590,23 @@
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 20px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .footer-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .footer-links {
@@ -1023,9 +636,7 @@
         }
 
         @media (max-width: 1024px) {
-            .hero-content,
-            .demo-container,
-            .contact-grid {
+            .hero-content {
                 grid-template-columns: 1fr;
             }
 
@@ -1061,6 +672,15 @@
                 height: 60px;
                 font-size: 32px;
             }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -1075,14 +695,15 @@
 
     <nav>
         <div class="logo" onclick="showPage('home')">
-            <div class="logo-icon">⚡</div>
+            <div class="logo-icon">
+                <img src="LOGO-removebg-preview.png" alt="VoxFlow AI" onerror="this.parentElement.innerHTML='⚡'">
+            </div>
             <span>VoxFlow</span>
         </div>
         <ul class="nav-menu">
             <li><a onclick="showPage('home')">Ana Sayfa</a></li>
             <li><a onclick="showPage('features')">Nasıl Çalışır?</a></li>
             <li><a onclick="showPage('pricing')">Fiyatlar</a></li>
-            <li><a onclick="showPage('demo')">Demo</a></li>
             <li><a onclick="showPage('contact')">İletişim</a></li>
         </ul>
         <button class="nav-cta" onclick="openWhatsApp()">WhatsApp ile İletişim</button>
@@ -1124,7 +745,9 @@
                     <div>
                         <div class="chat-preview">
                             <div class="chat-header">
-                                <div class="chat-avatar">⚡</div>
+                                <div class="chat-avatar">
+                                    <img src="LOGO-removebg-preview.png" alt="VoxFlow Bot" onerror="this.parentElement.innerHTML='⚡'">
+                                </div>
                                 <div>
                                     <h3>VoxFlow Asistan</h3>
                                     <div class="chat-status">
@@ -1133,7 +756,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="hero-messages">
+                            <div>
                                 <div class="message message-bot">
                                     Merhaba! WhatsApp siparişlerinizi otomatik alıp sisteme işleyebilirim 📦
                                 </div>
@@ -1153,237 +776,6 @@
 
     <!-- FEATURES PAGE -->
     <div id="features" class="page">
-        <!-- HOW IT WORKS SECTION -->
-        <section class="features" style="padding: 150px 5% 80px;">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-badge">NASIL ÇALIŞIR?</div>
-                    <h2>AI Chatbot ile Neler Yapabilirsiniz?</h2>
-                    <p style="font-size: 19px; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto;">
-                        Yapay zeka destekli chatbot'lar, müşterilerinizle 7/24 kesintisiz konuşan akıllı asistanlardır. Siz uyurken bile satış yapar, randevu alır, soruları yanıtlar.
-                    </p>
-                </div>
-
-                <!-- Main Benefits -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 70px;">
-                    <div style="background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.15)); border: 1px solid rgba(99,102,241,0.3); border-radius: 20px; padding: 35px; text-align: center;">
-                        <div style="font-size: 52px; margin-bottom: 15px;">💬</div>
-                        <h3 style="font-size: 22px; margin-bottom: 15px; font-weight: 800;">Otomatik Mesaj Yanıtlama</h3>
-                        <p style="color: rgba(255,255,255,0.8); line-height: 1.7;">
-                            Müşterilerinizin WhatsApp, Instagram, Web sitesi mesajlarına anında yanıt verin. 1000 kişi aynı anda mesaj atsa bile hepsine 1 saniyede cevap!
-                        </p>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, rgba(236,72,153,0.15), rgba(245,87,108,0.15)); border: 1px solid rgba(236,72,153,0.3); border-radius: 20px; padding: 35px; text-align: center;">
-                        <div style="font-size: 52px; margin-bottom: 15px;">📋</div>
-                        <h3 style="font-size: 22px; margin-bottom: 15px; font-weight: 800;">Müşteri Bilgilerini Toplama</h3>
-                        <p style="color: rgba(255,255,255,0.8); line-height: 1.7;">
-                            Web sitenize gelen ziyaretçilerin isim, telefon, e-posta bilgilerini otomatik toplayın. Satış ekibinize direkt bildirim gitsin.
-                        </p>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(0,242,254,0.15)); border: 1px solid rgba(59,130,246,0.3); border-radius: 20px; padding: 35px; text-align: center;">
-                        <div style="font-size: 52px; margin-bottom: 15px;">🛒</div>
-                        <h3 style="font-size: 22px; margin-bottom: 15px; font-weight: 800;">Sipariş Alma & Ödeme</h3>
-                        <p style="color: rgba(255,255,255,0.8); line-height: 1.7;">
-                            WhatsApp'tan gelen "1 pizza istiyorum" mesajını otomatik işleyin. Ödeme linki gönderin, siparişi kaydedin. Hiç telefon açmadan satış yapın!
-                        </p>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(52,211,153,0.15)); border: 1px solid rgba(16,185,129,0.3); border-radius: 20px; padding: 35px; text-align: center;">
-                        <div style="font-size: 52px; margin-bottom: 15px;">📅</div>
-                        <h3 style="font-size: 22px; margin-bottom: 15px; font-weight: 800;">Randevu Yönetimi</h3>
-                        <p style="color: rgba(255,255,255,0.8); line-height: 1.7;">
-                            Müşteriler "Yarın saat 14:00'te gelebilir miyim?" diye sorunca bot otomatik randevu oluştursun. Hatırlatma mesajı da otomatik gitsin.
-                        </p>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(251,146,60,0.15)); border: 1px solid rgba(245,158,11,0.3); border-radius: 20px; padding: 35px; text-align: center;">
-                        <div style="font-size: 52px; margin-bottom: 15px;">📦</div>
-                        <h3 style="font-size: 22px; margin-bottom: 15px; font-weight: 800;">Stok & Kargo Takibi</h3>
-                        <p style="color: rgba(255,255,255,0.8); line-height: 1.7;">
-                            "Siparişim nerede?" sorusuna otomatik kargo numarası göndersin. Stok bitince size bildirim, müşteriye "Tükendi" mesajı gitsin.
-                        </p>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(192,132,252,0.15)); border: 1px solid rgba(168,85,247,0.3); border-radius: 20px; padding: 35px; text-align: center;">
-                        <div style="font-size: 52px; margin-bottom: 15px;">📊</div>
-                        <h3 style="font-size: 22px; margin-bottom: 15px; font-weight: 800;">Günlük Raporlar</h3>
-                        <p style="color: rgba(255,255,255,0.8); line-height: 1.7;">
-                            Günün sonunda kaç sipariş geldi, kaç lead toplandı, hangi ürünler soruldu - hepsi otomatik Excel'e yazsın, size mail atılsın.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Voice Bot Section -->
-                <div style="margin-top: 80px; background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(99,102,241,0.2)); border: 2px solid rgba(236,72,153,0.4); border-radius: 30px; padding: 50px; text-align: center;">
-                    <div style="font-size: 64px; margin-bottom: 20px;">🎙️</div>
-                    <h3 style="font-size: 32px; margin-bottom: 20px; font-weight: 900;">Sesli AI Asistan (Voice Bot)</h3>
-                    <p style="color: rgba(255,255,255,0.85); font-size: 19px; max-width: 750px; margin: 0 auto 40px; line-height: 1.8;">
-                        Telefonlarınızı yapay zeka ile yanıtlayın! Bot Türkçe konuşur, müşterinin ne istediğini anlar, randevu oluşturur, bilgi kaydeder. Sanki gerçek bir insan konuşuyor gibi.
-                    </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                        <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 16px;">
-                            <div style="font-size: 36px; margin-bottom: 10px;">📞</div>
-                            <h4 style="font-size: 18px; margin-bottom: 8px;">Gelen Çağrıları Karşıla</h4>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 14px;">7/24 hiç çağrı kaçırmayın</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 16px;">
-                            <div style="font-size: 36px; margin-bottom: 10px;">🗣️</div>
-                            <h4 style="font-size: 18px; margin-bottom: 8px;">Türkçe Konuşma</h4>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Doğal, akıcı diyalog</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 16px;">
-                            <div style="font-size: 36px; margin-bottom: 10px;">✍️</div>
-                            <h4 style="font-size: 18px; margin-bottom: 8px;">Bilgi Toplama</h4>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 14px;">İsim, telefon, talep kaydet</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 16px;">
-                            <div style="font-size: 36px; margin-bottom: 10px;">📆</div>
-                            <h4 style="font-size: 18px; margin-bottom: 8px;">Randevu Oluştur</h4>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 14px;">Otomatik tarih planlama</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin-top: 80px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1)); border: 1px solid rgba(99,102,241,0.3); border-radius: 30px; padding: 50px; text-align: center;">
-                    <h3 style="font-size: 28px; margin-bottom: 20px; font-weight: 800;">🚀 Sonuç Ne Olur?</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px;">
-                        <div>
-                            <div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">%80</div>
-                            <p style="color: rgba(255,255,255,0.8);">Daha Az Zaman Harcama</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">7/24</div>
-                            <p style="color: rgba(255,255,255,0.8);">Kesintisiz Çalışma</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">3x</div>
-                            <p style="color: rgba(255,255,255,0.8);">Daha Fazla Müşteri</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 48px; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">₺0</div>
-                            <p style="color: rgba(255,255,255,0.8);">Eleman Maaşı</p>
-                        </div>
-                    </div>
-                    <p style="margin-top: 40px; font-size: 17px; color: rgba(255,255,255,0.75); max-width: 700px; margin-left: auto; margin-right: auto;">
-                        <strong>Artık müşteri temsilcisi çalıştırmaya gerek yok!</strong> Chatbot 1 saniyede yanıt verir, 1000 kişiyle aynı anda konuşabilir, asla yorulmaz ve maaş istemez. Siz uyurken bile satış yapar.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- USE CASES SECTION -->
-        <section class="features" style="padding: 80px 5%;">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-badge">KULLANIM ÖRNEKLERİ</div>
-                    <h2>Gerçek Hayattan Senaryolar</h2>
-                    <p style="font-size: 19px; color: rgba(255,255,255,0.7);">Chatbot'larınız neler yapabilir? İşte birkaç örnek...</p>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 60px;">
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px;">
-                        <div style="font-size: 36px; margin-bottom: 15px;">🍕</div>
-                        <h4 style="font-size: 20px; margin-bottom: 15px; font-weight: 700;">Restoran - Sipariş Botu</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px;">
-                            Müşteri: "1 büyük boy karışık pizza istiyorum"<br>
-                            Bot: "Adresiniz nedir?"<br>
-                            Müşteri: "Ankara, Çankaya..."<br>
-                            Bot: "Toplam 180 TL, ödeme linki gönderdim. 30 dk'da kapınızda!"
-                        </p>
-                        <div style="background: rgba(99,102,241,0.1); padding: 12px; border-radius: 10px;">
-                            <p style="font-size: 13px; color: rgba(255,255,255,0.8);"><strong>Özellikler:</strong> Menü gösterimi, sepet yönetimi, adres alma, ödeme linki, sipariş takibi</p>
-                        </div>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px;">
-                        <div style="font-size: 36px; margin-bottom: 15px;">💼</div>
-                        <h4 style="font-size: 20px; margin-bottom: 15px; font-weight: 700;">Danışmanlık Şirketi - Randevu Botu</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px;">
-                            Müşteri: "Emlak danışmanlığı için görüşmek istiyorum"<br>
-                            Bot: "Hangi gün uygun?"<br>
-                            Müşteri: "Yarın saat 14:00"<br>
-                            Bot: "Randevunuz oluşturuldu, size SMS gönderdim. Görüşmek üzere!"
-                        </p>
-                        <div style="background: rgba(99,102,241,0.1); padding: 12px; border-radius: 10px;">
-                            <p style="font-size: 13px; color: rgba(255,255,255,0.8);"><strong>Özellikler:</strong> Takvim entegrasyonu, hatırlatma mesajı, müşteri bilgilerini kaydetme</p>
-                        </div>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px;">
-                        <div style="font-size: 36px; margin-bottom: 15px;">🛍️</div>
-                        <h4 style="font-size: 20px; margin-bottom: 15px; font-weight: 700;">E-Ticaret - Destek Botu</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px;">
-                            Müşteri: "Siparişim nerede? #12345"<br>
-                            Bot: "Siparişiniz kargoda, takip numarası: ABC123. Yarın elinizde olacak."<br>
-                            Müşteri: "Ürünü beğenmedim, iade edebilir miyim?"<br>
-                            Bot: "Elbette, iade formu mail adresinize gönderildi."
-                        </p>
-                        <div style="background: rgba(99,102,241,0.1); padding: 12px; border-radius: 10px;">
-                            <p style="font-size: 13px; color: rgba(255,255,255,0.8);"><strong>Özellikler:</strong> Sipariş sorgulama, kargo takibi, iade süreci, ürün öneri sistemi</p>
-                        </div>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px;">
-                        <div style="font-size: 36px; margin-bottom: 15px;">🏥</div>
-                        <h4 style="font-size: 20px; margin-bottom: 15px; font-weight: 700;">Klinik - Sesli Karşılama (Voice Bot)</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px;">
-                            📞 Telefon çalar →<br>
-                            Bot: "Merhaba, DişteBu kliniği, ben AI asistanınızım. Size nasıl yardımcı olabilirim?"<br>
-                            Hasta: "Diş ağrım var, randevu almak istiyorum"<br>
-                            Bot: "Yarın saat 15:00 uygun, randevunuzu kaydettim."
-                        </p>
-                        <div style="background: rgba(99,102,241,0.1); padding: 12px; border-radius: 10px;">
-                            <p style="font-size: 13px; color: rgba(255,255,255,0.8);"><strong>Özellikler:</strong> Türkçe ses tanıma, randevu planlama, hasta kaydı, SMS hatırlatma</p>
-                        </div>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px;">
-                        <div style="font-size: 36px; margin-bottom: 15px;">🏠</div>
-                        <h4 style="font-size: 20px; margin-bottom: 15px; font-weight: 700;">Emlak - Potansiyel Müşteri Toplama</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px;">
-                            Ziyaretçi web sitesinde →<br>
-                            Bot: "Hangi bölgede daire arıyorsunuz?"<br>
-                            Ziyaretçi: "Kadıköy, 2+1"<br>
-                            Bot: "3 uygun daire buldum. İletişim bilgilerinizi alabilir miyim?"<br>
-                            → Bilgiler kaydedilir, satış ekibine bildirim gider.
-                        </p>
-                        <div style="background: rgba(99,102,241,0.1); padding: 12px; border-radius: 10px;">
-                            <p style="font-size: 13px; color: rgba(255,255,255,0.8);"><strong>Özellikler:</strong> Form doldurma, filtreleme, potansiyel müşteri puanlama, otomatik takip maili</p>
-                        </div>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px;">
-                        <div style="font-size: 36px; margin-bottom: 15px;">📱</div>
-                        <h4 style="font-size: 20px; margin-bottom: 15px; font-weight: 700;">SaaS Şirketi - Onboarding Botu</h4>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px;">
-                            Yeni kullanıcı kayıt olur →<br>
-                            Bot (WhatsApp): "Hoş geldiniz! 3 adımda sistemi kuralım."<br>
-                            "1- Şirket bilgilerinizi girin"<br>
-                            "2- Ekibinizi davet edin"<br>
-                            "3- İlk projenizi oluşturun"<br>
-                            → Kullanıcı adım adım yönlendirilir.
-                        </p>
-                        <div style="background: rgba(99,102,241,0.1); padding: 12px; border-radius: 10px;">
-                            <p style="font-size: 13px; color: rgba(255,255,255,0.8);"><strong>Özellikler:</strong> Adım adım rehberlik, video tutorial gönderimi, destek talep toplama</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 70px;">
-                    <h3 style="font-size: 32px; margin-bottom: 20px; font-weight: 900;">Sizin İşletmeniz İçin Ne Yapabiliriz?</h3>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 18px; margin-bottom: 35px; max-width: 650px; margin-left: auto; margin-right: auto;">
-                        Her sektöre özel çözümler üretiyoruz. Projenizi anlayalım, size özel chatbot senaryosu yazalım.
-                    </p>
-                    <button class="btn-primary" onclick="openWhatsApp()" style="padding: 22px 55px; font-size: 19px;">
-                        Ücretsiz Danışmanlık Alın →
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ORIGINAL FEATURES -->
         <section class="features">
             <div class="container">
                 <div class="section-header">
@@ -1395,26 +787,6 @@
                     <div class="feature-card">
                         <div class="feature-icon">📞</div>
                         <h3 style="font-size: 24px; margin-bottom: 15px;">AI Telefon Karşılama</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Gelen çağrıları yapay zeka ile otomatik karşılayın. Müşteri bilgilerini alın, randevu oluşturun, iletişim detaylarını CRM'e aktarın. 7/24 hiç çağrı kaçırmayın.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">💬</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">WhatsApp Otomasyon</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">WhatsApp üzerinden gelen siparişleri otomatik alın, ödeme linklerini gönderin, kargo takibi yapın. Müşteri mesajlarına anında AI yanıtları ile karşılık verin.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">Potansiyel Müşteri Toplama</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Web sitenizden, sosyal medyadan gelen potansiyel müşterileri otomatik toplayın. Bilgileri kaydedin, takip maillerini gönderin, satış ekibine bildirin.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">Veri Toplama & Raporlama</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Günlük satış raporları, stok durumu, müşteri analizleri otomatik oluşsun. Excel'e, Google Sheets'e veya dashboardunuza aktarılsın.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛒</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">E-Ticaret Otomasyonu</h3>
                         <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Sipariş onayları, kargo bildirimleri, ödeme takipleri otomatik gönderilsin. Stok düştüğünde tedarikçiye mail atılsın. Tüm süreci otomatikleştirin.</p>
                     </div>
                     <div class="feature-card">
@@ -1422,63 +794,11 @@
                         <h3 style="font-size: 24px; margin-bottom: 15px;">Randevu Yönetim Sistemi</h3>
                         <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Müşteriler WhatsApp veya web sitesinden randevu alsın. Hatırlatma mesajları otomatik gitsin. İptal/değişiklikler otomatik yönetilsin.</p>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔔</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">Bildirim Sistemleri</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Önemli olaylarda ekibinize anlık bildirim. Yeni sipariş, kritik stok, büyük ödeme, müşteri şikayeti - hepsini otomatik takip edin.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🤝</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">Müşteri İlişkileri Yönetimi</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Tüm müşteri etkileşimlerini otomatik kaydedin. Satış hunisini takip edin. Müşteri yolculuğunu görselleştirin.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎨</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">Sosyal Medya Otomasyonu</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Instagram, Facebook DM'lerini otomatik yanıtlayın. Yorumları analiz edin. İçerik paylaşımlarını planlayın ve otomatik yayınlayın.</p>
-                    </div>
                 </div>
                 <div style="text-align: center; margin-top: 70px;">
                     <button class="btn-primary" onclick="openWhatsApp()" style="padding: 22px 55px; font-size: 19px;">
                         Özel Çözüm İsteyin →
                     </button>
-                </div>
-
-                <!-- TRUST BADGES -->
-                <div style="margin-top: 100px; background: rgba(255,255,255,0.02); border-radius: 30px; padding: 50px; border: 1px solid rgba(255,255,255,0.05);">
-                    <h3 style="text-align: center; font-size: 26px; margin-bottom: 40px; font-weight: 800;">🔒 Güvenli & Profesyonel Altyapı</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
-                        <div>
-                            <div style="font-size: 40px; margin-bottom: 10px;">🔐</div>
-                            <h4 style="font-size: 16px; margin-bottom: 8px; font-weight: 700;">256-bit SSL</h4>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 13px;">Şifreli veri aktarımı</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 40px; margin-bottom: 10px;">☁️</div>
-                            <h4 style="font-size: 16px; margin-bottom: 8px; font-weight: 700;">Cloud Hosting</h4>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 13px;">%99.9 uptime garantisi</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 40px; margin-bottom: 10px;">🤖</div>
-                            <h4 style="font-size: 16px; margin-bottom: 8px; font-weight: 700;">OpenAI GPT-4</h4>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 13px;">En gelişmiş AI teknolojisi</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 40px; margin-bottom: 10px;">⚙️</div>
-                            <h4 style="font-size: 16px; margin-bottom: 8px; font-weight: 700;">N8N Workflow</h4>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 13px;">Esneklik ve güç</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 40px; margin-bottom: 10px;">📊</div>
-                            <h4 style="font-size: 16px; margin-bottom: 8px; font-weight: 700;">Real-time Analytics</h4>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 13px;">Canlı performans takibi</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 40px; margin-bottom: 10px;">🇹🇷</div>
-                            <h4 style="font-size: 16px; margin-bottom: 8px; font-weight: 700;">Türkçe Destek</h4>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 13px;">7/24 teknik yardım</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1503,13 +823,11 @@
                             <li>Tek platform (WhatsApp VEYA Web)</li>
                             <li>30+ özelleştirilmiş senaryo</li>
                             <li>Otomatik mesaj yanıtlama sistemi</li>
-                            <li>Özel hoş geldin & FAQ mesajları</li>
                             <li>Temel lead toplama formu</li>
                             <li>2-3 gün teslim</li>
                             <li>30 gün teknik destek</li>
-                            <li>1.000 mesaj/ay kapasitesi</li>
                         </ul>
-                        <button class="btn-primary" style="width: 100%;" onclick="selectPlan('Temel Chatbot', 4500)">Paket Seç →</button>
+                        <button class="btn-primary" style="width: 100%;" onclick="openWhatsApp('Temel Chatbot paketi hakkında bilgi almak istiyorum.')">Paket Seç →</button>
                     </div>
 
                     <div class="pricing-card popular">
@@ -1524,13 +842,10 @@
                             <li>Müşteri bilgilerini otomatik kaydetme</li>
                             <li>Sipariş alma & ödeme link sistemi</li>
                             <li>Otomatik randevu yönetimi</li>
-                            <li>Potansiyel müşteri takip otomasyonu</li>
-                            <li>Google Sheets/Excel raporlama</li>
                             <li>Sınırsız mesaj kapasitesi</li>
-                            <li>3-5 gün teslim</li>
-                            <li>90 gün teknik destek & güncelleme</li>
+                            <li>90 gün teknik destek</li>
                         </ul>
-                        <button class="btn-primary" style="width: 100%;" onclick="selectPlan('Akıllı AI Chatbot', 10499)">Paket Seç →</button>
+                        <button class="btn-primary" style="width: 100%;" onclick="openWhatsApp('Akıllı AI Chatbot paketi hakkında bilgi almak istiyorum.')">Paket Seç →</button>
                     </div>
 
                     <div class="pricing-card">
@@ -1543,156 +858,12 @@
                             <li>Türkçe & İngilizce sesli iletişim</li>
                             <li>Gelen çağrı yönlendirme & kayıt</li>
                             <li>Otomatik randevu planlama</li>
-                            <li>Müşteri bilgisi otomatik kayıt</li>
                             <li>WhatsApp + Web chatbot dahil</li>
-                            <li>N8N + OpenAI Whisper + GPT-4</li>
                             <li>Sınırsız çağrı & mesaj</li>
-                            <li>Özel ses tonlama seçenekleri</li>
-                            <li>5-7 gün teslim</li>
-                            <li>6 ay teknik destek & iyileştirme</li>
+                            <li>6 ay teknik destek</li>
                         </ul>
-                        <button class="btn-primary" style="width: 100%;" onclick="selectPlan('AI Voice + Chatbot', 19500)">Paket Seç →</button>
+                        <button class="btn-primary" style="width: 100%;" onclick="openWhatsApp('AI Voice + Chatbot paketi hakkında bilgi almak istiyorum.')">Paket Seç →</button>
                     </div>
-
-                    <div class="pricing-card" style="grid-column: 1/-1; max-width: 850px; margin: 30px auto 0; background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.15)); border: 2px solid rgba(99,102,241,0.4);">
-                        <div style="text-align: center; margin-bottom: 30px;">
-                            <div style="display: inline-block; padding: 8px 20px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50px; font-size: 12px; font-weight: 800; margin-bottom: 15px;">⭐ KURUMSAL ÇÖZÜM</div>
-                            <h3 style="font-size: 32px; margin-bottom: 15px; font-family: 'Space Grotesk', sans-serif; font-weight: 900;">Özel Kurumsal Paket</h3>
-                            <p style="color: rgba(255,255,255,0.8); font-size: 18px; line-height: 1.7; max-width: 650px; margin: 0 auto;">
-                                İşletmenize özel tasarlanmış, tam entegre AI otomasyon çözümü. Projenizi anlayalım, size özel sistem kuralım ve fiyat teklifi hazırlayalım.
-                            </p>
-                        </div>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
-                            <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
-                                <h4 style="font-size: 18px; margin-bottom: 12px; color: var(--primary);">🌐 Çoklu Platform</h4>
-                                <p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6;">WhatsApp, Instagram, Facebook, Telegram, Email, Web - tüm kanallarınız tek sistemde</p>
-                            </div>
-                            <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
-                                <h4 style="font-size: 18px; margin-bottom: 12px; color: var(--secondary);">🔗 API & ERP</h4>
-                                <p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6;">Mevcut sistemlerinizle tam entegrasyon - SAP, Oracle, custom API'ler</p>
-                            </div>
-                            <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
-                                <h4 style="font-size: 18px; margin-bottom: 12px; color: var(--accent);">🧠 Özel AI</h4>
-                                <p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6;">Sektörünüze özel eğitilmiş AI modeli, kendi verilerinizle öğrenme</p>
-                            </div>
-                        </div>
-
-                        <ul class="features-list" style="max-width: 700px; margin: 30px auto; column-count: 2; column-gap: 30px;">
-                            <li>Sınırsız workflow & senaryo</li>
-                            <li>Özel dashboard & raporlama</li>
-                            <li>White-label çözüm</li>
-                            <li>Kendi sunucunuzda hosting</li>
-                            <li>SLA garantisi</li>
-                            <li>7/24 öncelikli destek</li>
-                            <li>Aylık sistem optimizasyonu</li>
-                            <li>Dedicated proje yöneticisi</li>
-                        </ul>
-
-                        <div style="text-align: center; margin-top: 35px;">
-                            <p style="color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 20px;">📞 Detaylı analiz ve fiyat teklifi için hemen görüşelim</p>
-                            <button class="btn-primary" style="padding: 20px 50px; font-size: 18px; box-shadow: 0 15px 40px rgba(99,102,241,0.6);" onclick="openWhatsApp('Kurumsal özel paket için görüşmek istiyorum. Projemiz hakkında detaylı bilgi almak isterim.')">Hemen Görüşme Talep Et →</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 90px; text-align: center;">
-                    <h3 style="font-size: 32px; margin-bottom: 35px; font-family: 'Space Grotesk', sans-serif; font-weight: 800;">💳 Ödeme Seçenekleri</h3>
-                    <p style="font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                        💡 <strong>Not:</strong> Kurulum ücreti tek seferlik ödemedir. Aylık AI kullanım ücreti her ay faturalandırılır.
-                    </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 25px; max-width: 950px; margin: 0 auto;">
-                        <div style="background: rgba(255,255,255,0.04); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(99,102,241,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,255,255,0.12)'">
-                            <div style="font-size: 48px; margin-bottom: 18px;">🏦</div>
-                            <h4 style="margin-bottom: 12px; font-size: 20px;">Havale / EFT</h4>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 15px;">Banka hesabına direkt ödeme</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.04); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(99,102,241,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,255,255,0.12)'">
-                            <div style="font-size: 48px; margin-bottom: 18px;">💬</div>
-                            <h4 style="margin-bottom: 12px; font-size: 20px;">WhatsApp Ödeme</h4>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 15px;">Mesaj ile hızlı ödeme</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.04); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(99,102,241,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,255,255,0.12)'">
-                            <div style="font-size: 48px; margin-bottom: 18px;">📄</div>
-                            <h4 style="margin-bottom: 12px; font-size: 20px;">Fatura Ödeme</h4>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 15px;">Kurumsal müşteriler için</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- DEMO PAGE -->
-    <div id="demo" class="page">
-        <section class="demo-section">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-badge">DEMO</div>
-                    <h2>Chatbot Simülasyonu</h2>
-                    <p style="font-size: 19px; color: rgba(255,255,255,0.7);">Örnek bir müşteri-bot etkileşimini test edin</p>
-                </div>
-                <div class="demo-container">
-                    <div class="demo-controls">
-                        <h3>⚙️ Senaryo Seçin</h3>
-                        <div class="control-group">
-                            <label>İş Modeli</label>
-                            <select id="businessModel" onchange="changeScenario()">
-                                <option value="ecommerce">E-Ticaret Siparişi</option>
-                                <option value="restaurant">Restoran Rezervasyonu</option>
-                                <option value="support">Müşteri Destek</option>
-                                <option value="lead">Potansiyel Müşteri</option>
-                            </select>
-                        </div>
-                        <div class="control-group">
-                            <label>Bot İsmi</label>
-                            <input type="text" id="botName" value="VoxFlow Asistan" placeholder="Bot adı">
-                        </div>
-                        <div class="control-group">
-                            <label>Karşılama Mesajı</label>
-                            <textarea id="welcomeMsg">Merhaba! Size nasıl yardımcı olabilirim?</textarea>
-                        </div>
-                        <button class="btn-primary" style="width: 100%;" onclick="applySettings()">Ayarları Uygula ✓</button>
-                        <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="resetDemo()">Sıfırla ↻</button>
-                        
-                        <div style="margin-top: 30px; padding: 22px; background: rgba(99,102,241,0.12); border-radius: 14px; border: 1px solid rgba(99,102,241,0.35);">
-                            <p style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6;">
-                                💡 <strong>Not:</strong> Bu demo sadece örnek senaryolar gösterir. Gerçek sistemler N8N üzerinde özelleştirilir ve tüm platformlarınızla entegre edilir.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="demo-chat">
-                        <div class="chat-header">
-                            <div class="chat-avatar">⚡</div>
-                            <div>
-                                <h3 id="demoBotName">VoxFlow Asistan</h3>
-                                <div class="chat-status">
-                                    <div class="badge-dot"></div>
-                                    <span>Aktif</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="demo-messages" id="demoMessages">
-                            <div class="message message-bot">
-                                Merhaba! Size nasıl yardımcı olabilirim?
-                            </div>
-                        </div>
-                        <div class="demo-input-area">
-                            <input type="text" class="demo-input" id="demoInput" placeholder="Mesajınızı yazın..." onkeypress="if(event.key==='Enter') sendDemoMessage()">
-                            <button class="demo-send-btn" onclick="sendDemoMessage()">Gönder →</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 70px;">
-                    <h3 style="font-size: 36px; margin-bottom: 22px; font-family: 'Space Grotesk', sans-serif; font-weight: 900;">Kendi Otomasyonunuzu Oluşturalım</h3>
-                    <p style="color: rgba(255,255,255,0.75); margin-bottom: 35px; font-size: 19px;">
-                        Ücretsiz danışmanlık ile işletmeniz için özel otomasyon planı hazırlayalım
-                    </p>
-                    <button class="btn-primary" onclick="openWhatsApp()" style="padding: 22px 55px; font-size: 19px;">
-                        Ücretsiz Görüşme Talep Et →
-                    </button>
                 </div>
             </div>
         </section>
@@ -1700,124 +871,33 @@
 
     <!-- CONTACT PAGE -->
     <div id="contact" class="page">
-        <section class="contact-page">
+        <section class="features">
             <div class="container">
                 <div class="section-header">
                     <div class="section-badge">İLETİŞİM</div>
                     <h2>Hemen Başlayalım</h2>
                     <p style="font-size: 19px; color: rgba(255,255,255,0.7);">Size özel bir otomasyon planı hazırlayalım</p>
                 </div>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="info-card">
-                            <div class="info-icon">📱</div>
-                            <div>
-                                <h4 style="font-size: 20px; margin-bottom: 10px;">WhatsApp</h4>
-                                <p style="color: rgba(255,255,255,0.8); font-weight: 600; font-size: 17px;">+90 544 481 95 34</p>
-                                <p style="color: rgba(255,255,255,0.6); margin-top: 5px;">7/24 Mesaj Atabilirsiniz</p>
-                                <button class="whatsapp-btn" onclick="openWhatsApp()" style="margin-top: 15px; padding: 12px 25px; font-size: 14px;">
-                                    💬 WhatsApp'ta Mesaj Gönder
-                                </button>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">🏦</div>
-                            <div>
-                                <h4 style="font-size: 20px; margin-bottom: 10px;">Banka Bilgileri</h4>
-                                <p style="color: rgba(255,255,255,0.8); font-weight: 600;">Dağhan Necati Şengül</p>
-                                <p style="color: rgba(255,255,255,0.6); margin-top: 5px; font-size: 14px; font-family: 'Space Grotesk', monospace; letter-spacing: 1px;">TR75 0006 2001 1620 0006 6377 70</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">🕐</div>
-                            <div>
-                                <h4 style="font-size: 20px; margin-bottom: 10px;">Yanıt Süresi</h4>
-                                <p style="color: rgba(255,255,255,0.8);">Ortalama 2 saat içinde</p>
-                                <p style="color: rgba(255,255,255,0.6); margin-top: 5px;">Mesai saatleri: 09:00 - 18:00</p>
-                            </div>
-                        </div>
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <div style="background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 60px; margin-bottom: 50px;">
+                        <div style="font-size: 64px; margin-bottom: 20px;">📱</div>
+                        <h3 style="font-size: 32px; margin-bottom: 20px;">WhatsApp İletişim</h3>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 24px; font-weight: 600; margin-bottom: 10px;">+90 544 481 95 34</p>
+                        <p style="color: rgba(255,255,255,0.6); margin-bottom: 30px;">7/24 Mesaj Atabilirsiniz</p>
+                        <button class="btn-primary" onclick="openWhatsApp()" style="padding: 20px 50px; font-size: 18px;">
+                            💬 WhatsApp'ta Mesaj Gönder
+                        </button>
                     </div>
-
-                    <div class="contact-form">
-                        <h3 style="font-size: 30px; margin-bottom: 30px; font-family: 'Space Grotesk', sans-serif; font-weight: 800;">Hemen İletişime Geçin</h3>
-                        <form onsubmit="submitContact(event)">
-                            <div class="form-group">
-                                <label>Ad Soyad *</label>
-                                <input type="text" id="contactName" required placeholder="İsminizi yazın">
-                            </div>
-                            <div class="form-group">
-                                <label>Email *</label>
-                                <input type="email" id="contactEmail" required placeholder="ornek@email.com">
-                            </div>
-                            <div class="form-group">
-                                <label>WhatsApp / Telefon *</label>
-                                <input type="tel" id="contactPhone" required placeholder="+90 555 123 45 67">
-                            </div>
-                            <div class="form-group">
-                                <label>İşletme Türü</label>
-                                <select id="contactBusiness">
-                                    <option>E-Ticaret</option>
-                                    <option>Restoran/Kafe</option>
-                                    <option>Hizmet Sektörü</option>
-                                    <option>Emlak</option>
-                                    <option>Sağlık/Klinik</option>
-                                    <option>Eğitim</option>
-                                    <option>Diğer</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Hangi otomasyonla ilgileniyorsunuz? *</label>
-                                <textarea id="contactMessage" required placeholder="Örn: WhatsApp üzerinden sipariş almak istiyorum, müşteri verilerimi CRM'e otomatik aktarmak istiyorum..."></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Gönder →</button>
-                        </form>
+                    
+                    <div style="background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px;">
+                        <div style="font-size: 48px; margin-bottom: 15px;">🏦</div>
+                        <h4 style="font-size: 20px; margin-bottom: 15px;">Banka Bilgileri</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-weight: 600; margin-bottom: 10px;">Dağhan Necati Şengül</p>
+                        <p style="color: rgba(255,255,255,0.6); font-family: 'Space Grotesk', monospace; letter-spacing: 1px; font-size: 16px;">TR75 0006 2001 1620 0006 6377 70</p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
-
-    <!-- PAYMENT MODAL -->
-    <div id="paymentModal" class="payment-modal">
-        <div class="payment-content">
-            <button class="payment-close" onclick="closePaymentModal()">×</button>
-            <h2 style="font-size: 32px; margin-bottom: 15px; font-family: 'Space Grotesk', sans-serif; font-weight: 900;" id="paymentTitle">Ödeme Bilgileri</h2>
-            <p style="color: rgba(255,255,255,0.7); margin-bottom: 25px;" id="paymentDescription">Seçtiğiniz paket için ödeme yapabilirsiniz</p>
-            
-            <div class="iban-box">
-                <div class="iban-label">Hesap Sahibi</div>
-                <div style="font-size: 22px; font-weight: 700; margin: 10px 0;">Dağhan Necati Şengül</div>
-                
-                <div class="iban-label" style="margin-top: 20px;">IBAN Numarası</div>
-                <div class="iban-number" id="ibanNumber">TR75 0006 2001 1620 0006 6377 70</div>
-                
-                <button class="copy-btn" onclick="copyIBAN()">📋 IBAN'ı Kopyala</button>
-            </div>
-
-            <div style="background: rgba(99,102,241,0.12); padding: 20px; border-radius: 14px; margin: 20px 0; border: 1px solid rgba(99,102,241,0.3);">
-                <p style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6;">
-                    ℹ️ <strong>Ödeme Sonrası:</strong> Ödeme dekontunu WhatsApp üzerinden gönderin. Chatbot kurulumunuza 24 saat içinde başlayacağız.
-                </p>
-            </div>
-
-            <button class="whatsapp-btn" onclick="openWhatsAppWithPayment()" style="width: 100%; justify-content: center;">
-                💬 Ödeme Yaptım, WhatsApp'tan Bildir
-            </button>
-
-            <p style="text-align: center; margin-top: 20px; color: rgba(255,255,255,0.5); font-size: 13px;">
-                Sorularınız için: +90 544 481 95 34
-            </p>
-        </div>
-    </div>
-
-    <!-- SUCCESS MODAL -->
-    <div id="successModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-icon">✓</div>
-            <h3>Başarılı!</h3>
-            <p id="modalMessage">Mesajınız alındı. 2 saat içinde size dönüş yapacağız.</p>
-            <button class="modal-btn" onclick="closeModal()">Tamam</button>
-        </div>
     </div>
 
     <footer>
@@ -1825,7 +905,9 @@
             <div class="footer-content">
                 <div>
                     <div class="footer-logo">
-                        <div class="logo-icon">⚡</div>
+                        <div class="footer-logo-icon">
+                            <img src="LOGO-removebg-preview.png" alt="VoxFlow AI" onerror="this.innerHTML='⚡'">
+                        </div>
                         <span>VoxFlow</span>
                     </div>
                     <p style="color: rgba(255,255,255,0.6); margin: 20px 0; line-height: 1.7;">
@@ -1838,14 +920,12 @@
                         <li><a onclick="showPage('features')">WhatsApp Otomasyon</a></li>
                         <li><a onclick="showPage('features')">AI Telefon Sistemi</a></li>
                         <li><a onclick="showPage('features')">CRM Entegrasyonu</a></li>
-                        <li><a onclick="showPage('features')">E-Ticaret Botu</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 style="margin-bottom: 20px; font-size: 18px;">Şirket</h4>
                     <ul class="footer-links">
                         <li><a onclick="showPage('pricing')">Fiyatlandırma</a></li>
-                        <li><a onclick="showPage('demo')">Demo</a></li>
                         <li><a onclick="showPage('contact')">İletişim</a></li>
                         <li><a onclick="openWhatsApp()">WhatsApp</a></li>
                     </ul>
@@ -1855,7 +935,6 @@
                     <ul class="footer-links">
                         <li><a onclick="openWhatsApp()">+90 544 481 95 34</a></li>
                         <li><a>IBAN: TR75...6377 70</a></li>
-                        <li><a onclick="showPage('contact')">İletişim Formu</a></li>
                     </ul>
                 </div>
             </div>
@@ -1867,9 +946,6 @@
 
     <script>
         const WHATSAPP_NUMBER = '905444819534';
-        const IBAN = 'TR75 0006 2001 1620 0006 6377 70';
-        let selectedPlanName = '';
-        let selectedPlanPrice = 0;
 
         const cursorGlow = document.getElementById('cursor-glow');
         document.addEventListener('mousemove', (e) => {
@@ -1930,202 +1006,26 @@
             const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
-
-        function selectPlan(planName, price) {
-            selectedPlanName = planName;
-            selectedPlanPrice = price;
-            
-            document.getElementById('paymentTitle').textContent = `${planName} Paketi - ₺${price.toLocaleString('tr-TR')}`;
-            document.getElementById('paymentDescription').textContent = `${planName} paketini seçtiniz. Aşağıdaki IBAN'a ödeme yapın, ardından chatbot kurulumuna başlayalım.`;
-            document.getElementById('paymentModal').classList.add('active');
-        }
-
-        function closePaymentModal() {
-            document.getElementById('paymentModal').classList.remove('active');
-        }
-
-        function copyIBAN() {
-            const ibanText = IBAN.replace(/\s/g, '');
-            navigator.clipboard.writeText(ibanText).then(() => {
-                const btn = event.target;
-                const originalText = btn.textContent;
-                btn.textContent = '✓ Kopyalandı!';
-                btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
-                }, 2000);
-            });
-        }
-
-        function openWhatsAppWithPayment() {
-            const message = `Merhaba! ${selectedPlanName} paketi (₺${selectedPlanPrice.toLocaleString('tr-TR')}) için ödeme yaptım. Chatbot kurulumuna ne zaman başlayabiliriz?`;
-            openWhatsApp(message);
-            closePaymentModal();
-        }
-
-        const scenarios = {
-            ecommerce: {
-                messages: [
-                    { type: 'bot', text: 'Merhaba! Ürünlerimize göz atmak ister misiniz? 🛍️' },
-                    { type: 'user', text: 'Evet, beyaz ayakkabı arıyorum' },
-                    { type: 'bot', text: 'Harika! Size 3 beyaz ayakkabı modelimiz var. Fiyat aralığınız nedir?' },
-                    { type: 'user', text: '500-1000 TL arası' },
-                    { type: 'bot', text: 'Mükemmel! ₺750\'ye Nike Air Max, ₺850\'ye Adidas Ultraboost var. Hangisini incelemek istersiniz?' }
-                ]
-            },
-            restaurant: {
-                messages: [
-                    { type: 'bot', text: 'Restoranımıza hoş geldiniz! Rezervasyon yapmak ister misiniz? 🍽️' },
-                    { type: 'user', text: 'Evet, bu akşam için masa' },
-                    { type: 'bot', text: 'Bu akşam için kaç kişilik masa istiyorsunuz?' },
-                    { type: 'user', text: '4 kişilik' },
-                    { type: 'bot', text: 'Saat 19:00, 20:00 veya 21:00 için müsait yerimiz var. Hangi saati tercih edersiniz?' }
-                ]
-            },
-            support: {
-                messages: [
-                    { type: 'bot', text: 'Merhaba! Müşteri destek ekibiyim. Size nasıl yardımcı olabilirim? 💬' },
-                    { type: 'user', text: 'Siparişim nerede?' },
-                    { type: 'bot', text: 'Sipariş numaranızı paylaşabilir misiniz?' },
-                    { type: 'user', text: '#12345' },
-                    { type: 'bot', text: 'Siparişiniz kargoya verildi! Takip kodu: 1234567890. Yarın elinizde olacak 📦' }
-                ]
-            },
-            lead: {
-                messages: [
-                    { type: 'bot', text: 'Merhaba! İşletmeniz için nasıl yardımcı olabilirim? 🚀' },
-                    { type: 'user', text: 'AI otomasyon hakkında bilgi almak istiyorum' },
-                    { type: 'bot', text: 'Harika! Hangi sektördesiniz?' },
-                    { type: 'user', text: 'E-ticaret' },
-                    { type: 'bot', text: 'Mükemmel! E-ticaret için WhatsApp sipariş botu, stok takibi ve otomatik faturalama sistemimiz var. Ücretsiz demo ister misiniz?' }
-                ]
-            }
-        };
-
-        let currentScenario = 'ecommerce';
-        let currentStep = 0;
-
-        function changeScenario() {
-            currentScenario = document.getElementById('businessModel').value;
-            currentStep = 0;
-            resetDemo();
-        }
-
-        function sendDemoMessage() {
-            const input = document.getElementById('demoInput');
-            const message = input.value.trim();
-            if (!message) return;
-
-            const messagesDiv = document.getElementById('demoMessages');
-            
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message message-user';
-            userMsg.textContent = message;
-            messagesDiv.appendChild(userMsg);
-            
-            input.value = '';
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-            setTimeout(() => {
-                const scenario = scenarios[currentScenario];
-                if (currentStep < scenario.messages.length) {
-                    const nextMsg = scenario.messages[currentStep];
-                    if (nextMsg.type === 'bot') {
-                        const botMsg = document.createElement('div');
-                        botMsg.className = 'message message-bot';
-                        botMsg.textContent = nextMsg.text;
-                        messagesDiv.appendChild(botMsg);
-                        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                    }
-                    currentStep++;
-                } else {
-                    const botMsg = document.createElement('div');
-                    botMsg.className = 'message message-bot';
-                    botMsg.textContent = 'Senaryo tamamlandı! Gerçek sistemde bu konuşma N8N ile CRM\'inize kaydedilir ve takip edilir. 🎯';
-                    messagesDiv.appendChild(botMsg);
-                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                }
-            }, 1500);
-        }
-
-        function applySettings() {
-            const botName = document.getElementById('botName').value;
-            document.getElementById('demoBotName').textContent = botName;
-            
-            const welcomeMsg = document.getElementById('welcomeMsg').value;
-            const messagesDiv = document.getElementById('demoMessages');
-            if (messagesDiv.children[0]) {
-                messagesDiv.children[0].textContent = welcomeMsg;
-            }
-            
-            showModal('Ayarlar uygulandı! ✓');
-        }
-
-        function resetDemo() {
-            const welcomeMsg = document.getElementById('welcomeMsg').value;
-            document.getElementById('demoMessages').innerHTML = `
-                <div class="message message-bot">${welcomeMsg}</div>
-            `;
-            document.getElementById('demoInput').value = '';
-            currentStep = 0;
-            
-            const scenario = scenarios[currentScenario];
-            const messagesDiv = document.getElementById('demoMessages');
-            
-            setTimeout(() => {
-                scenario.messages.forEach((msg, index) => {
-                    setTimeout(() => {
-                        const msgDiv = document.createElement('div');
-                        msgDiv.className = `message message-${msg.type}`;
-                        msgDiv.textContent = msg.text;
-                        messagesDiv.appendChild(msgDiv);
-                        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                    }, index * 900);
-                });
-            }, 600);
-        }
-
-        function submitContact(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const phone = document.getElementById('contactPhone').value;
-            const business = document.getElementById('contactBusiness').value;
-            const message = document.getElementById('contactMessage').value;
-            
-            const whatsappMessage = `Merhaba! İsim: ${name}\nTelefon: ${phone}\nEmail: ${email}\nİşletme: ${business}\nMesaj: ${message}`;
-            openWhatsApp(whatsappMessage);
-            
-            showModal(`Teşekkürler ${name}! Mesajınız WhatsApp'tan gönderiliyor. 🚀`);
-            
-            e.target.reset();
-        }
-
-        function showModal(message) {
-            document.getElementById('modalMessage').textContent = message;
-            document.getElementById('successModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('successModal').classList.remove('active');
-        }
-
-        document.querySelectorAll('.nav-menu a, .logo').forEach(el => {
-            el.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('payment-modal')) {
-                closePaymentModal();
-            }
-            if (e.target.classList.contains('modal')) {
-                closeModal();
-            }
-        });
     </script>
 </body>
-</html>
+</html> 1.7;">Gelen çağrıları yapay zeka ile otomatik karşılayın. Müşteri bilgilerini alın, randevu oluşturun, iletişim detaylarını CRM'e aktarın. 7/24 hiç çağrı kaçırmayın.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">WhatsApp Otomasyon</h3>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">WhatsApp üzerinden gelen siparişleri otomatik alın, ödeme linklerini gönderin, kargo takibi yapın. Müşteri mesajlarına anında AI yanıtları ile karşılık verin.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">Potansiyel Müşteri Toplama</h3>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Web sitenizden, sosyal medyadan gelen potansiyel müşterileri otomatik toplayın. Bilgileri kaydedin, takip maillerini gönderin, satış ekibine bildirin.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">Veri Toplama & Raporlama</h3>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Günlük satış raporları, stok durumu, müşteri analizleri otomatik oluşsun. Excel'e, Google Sheets'e veya dashboardunuza aktarılsın.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛒</div>
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">E-Ticaret Otomasyonu</h3>
+                        <p style="color: rgba(255,255,255,0.7); line-height:
