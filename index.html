@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoxFlow AI | Akıllı Otomasyon Çözümleri - Dağhan Necati Şengül</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="Adsız_tasarım__1_-removebg-preview.png">
-    <link rel="apple-touch-icon" href="Adsız_tasarım__1_-removebg-preview.png">
-    
+    <title>VoxFlow AI | Akıllı Otomasyon Çözümleri</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -22,8 +17,6 @@
             --primary: #6366f1;
             --secondary: #8b5cf6;
             --accent: #ec4899;
-            --success: #10b981;
-            --warning: #f59e0b;
             --dark: #0f0f23;
             --darker: #050510;
         }
@@ -36,106 +29,48 @@
             line-height: 1.6;
         }
 
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        #cursor-glow {
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s;
-        }
-
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .mesh-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.25) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.25) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.25) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.25) 0px, transparent 50%);
-            animation: meshMove 20s ease infinite;
-        }
-
-        @keyframes meshMove {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(5deg); }
-        }
-
+        /* NAVBAR - LOGO BÜYÜTÜLDÜ */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 90px;
-            padding: 0 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(15, 15, 35, 0.8);
+            background: rgba(15, 15, 35, 0.95);
             backdrop-filter: blur(30px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .logo {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 32px;
+            font-size: 36px; /* BÜYÜTÜLDÜ */
             font-weight: 900;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 15px; /* BÜYÜTÜLDÜ */
             cursor: pointer;
             letter-spacing: -1px;
         }
 
         .logo-icon {
-            width: 120px;
-            height: 120px;
+            width: 60px; /* BÜYÜTÜLDÜ */
+            height: 60px; /* BÜYÜTÜLDÜ */
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            border-radius: 15px; /* BÜYÜTÜLDÜ */
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: logoFloat 3s ease-in-out infinite;
-            position: relative;
-        }
-
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 8px 20px rgba(99, 102, 241, 0.4));
+            font-size: 32px; /* BÜYÜTÜLDÜ */
+            animation: logoFloat 3s ease-in-out infinite; /* SALLANMA EKLENDİ */
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
         }
 
         @keyframes logoFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(3deg); } /* SALLANMA */
         }
 
         .nav-menu {
@@ -156,26 +91,6 @@
             font-size: 15px;
         }
 
-        .nav-menu a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transition: width 0.3s;
-            border-radius: 10px;
-        }
-
-        .nav-menu a:hover {
-            color: #fff;
-        }
-
-        .nav-menu a:hover::before {
-            width: 100%;
-        }
-
         .nav-cta {
             padding: 14px 32px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -189,38 +104,32 @@
             font-size: 15px;
         }
 
-        .nav-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.7);
+        /* FİYATLAR KISMI - KURULUM YAZILARI KÜÇÜLTÜLDÜ */
+        .price {
+            font-size: 64px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 25px 0;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 38px;
-            cursor: pointer;
-            z-index: 9998;
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s;
-            animation: pulse 2s ease-in-out infinite;
+        .price span {
+            -webkit-text-fill-color: rgba(255, 255, 255, 0.5);
+            background: none;
+            -webkit-background-clip: unset;
+            font-size: 16px !important; /* KÜÇÜLTÜLDÜ */
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.15);
-            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7);
+        /* GERİ KALAN STİLLER */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
         }
 
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5); }
-            50% { box-shadow: 0 8px 30px rgba(37, 211, 102, 0.8), 0 0 0 15px rgba(37, 211, 102, 0.1); }
+        .page.active {
+            display: block;
         }
 
         .container {
@@ -238,256 +147,8 @@
             padding: 140px 5% 80px;
         }
 
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.4);
-            border-radius: 50px;
-            font-size: 14px;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .badge-dot {
-            width: 10px;
-            height: 10px;
-            background: var(--primary);
-            border-radius: 50%;
-            animation: pulseDot 2s ease infinite;
-        }
-
-        @keyframes pulseDot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(0.9); }
-        }
-
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 82px;
-            font-weight: 900;
-            line-height: 1.05;
-            margin-bottom: 30px;
-            letter-spacing: -3px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #fff 0%, var(--primary) 40%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradientShift 4s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-description {
-            font-size: 21px;
-            color: rgba(255, 255, 255, 0.75);
-            margin-bottom: 45px;
-            line-height: 1.7;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .btn-primary, .btn-secondary {
-            padding: 20px 45px;
-            border-radius: 16px;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 12px 35px rgba(99, 102, 241, 0.5);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 45px rgba(99, 102, 241, 0.7);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.06);
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            color: white;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--primary);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 50px;
-        }
-
-        .stat-number {
-            font-size: 42px;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .stat-label {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.65);
-            margin-top: 5px;
-        }
-
-        .chat-preview {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 35px;
-            padding: 45px;
-            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.6);
-        }
-
-        .chat-header {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 35px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .chat-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .chat-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 10px;
-        }
-
-        .chat-status {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 15px;
-            color: #4ade80;
-            font-weight: 600;
-        }
-
-        .message {
-            padding: 20px 25px;
-            border-radius: 20px;
-            margin-bottom: 18px;
-            animation: messageSlide 0.5s ease;
-        }
-
-        @keyframes messageSlide {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .message-bot {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(139, 92, 246, 0.25));
-            border: 1px solid rgba(99, 102, 241, 0.4);
-        }
-
-        .message-user {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
         .features {
             padding: 150px 5%;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 90px;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 10px 25px;
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.4);
-            border-radius: 50px;
-            font-size: 14px;
-            margin-bottom: 25px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .section-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 64px;
-            font-weight: 900;
-            margin-bottom: 25px;
-            letter-spacing: -2px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
-            gap: 35px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 45px;
-            transition: all 0.4s;
-            cursor: pointer;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-12px);
-            border-color: rgba(99, 102, 241, 0.5);
-            box-shadow: 0 35px 70px rgba(99, 102, 241, 0.25);
-        }
-
-        .feature-icon {
-            width: 75px;
-            height: 75px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            margin-bottom: 28px;
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
         }
 
         .pricing-grid {
@@ -507,196 +168,39 @@
             position: relative;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 35px 70px rgba(99, 102, 241, 0.25);
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
-            transform: scale(1.06);
-            background: rgba(99, 102, 241, 0.05);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            padding: 8px 20px;
+        .btn-primary {
+            padding: 20px 45px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 800;
-        }
-
-        .price {
-            font-size: 64px;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 25px 0;
-            font-family: 'Space Grotesk', sans-serif;
-            line-height: 1.2;
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .price span {
-            font-size: 22px;
-            font-weight: 400;
-        }
-
-        .features-list {
-            list-style: none;
-            margin: 35px 0;
-        }
-
-        .features-list li {
-            padding: 14px 0;
-            display: flex;
-            gap: 14px;
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 15px;
-        }
-
-        .features-list li::before {
-            content: '✓';
-            color: #4ade80;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        footer {
-            padding: 80px 5% 40px;
-            background: rgba(255, 255, 255, 0.01);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
+            border: none;
+            border-radius: 16px;
+            color: white;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 56px;
-            }
-
-            .pricing-card.popular {
-                transform: scale(1);
-            }
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 17px;
         }
 
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
             }
-
-            .features-grid,
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .whatsapp-float {
-                width: 60px;
-                height: 60px;
-                font-size: 32px;
-            }
-
-            .logo-icon {
-                width: 55px;
-                height: 55px;
-            }
-
+            
             .logo {
-                font-size: 24px;
+                font-size: 28px;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 26px;
             }
         }
     </style>
 </head>
 <body>
-    <div id="cursor-glow"></div>
-    <canvas id="particle-canvas"></canvas>
-    <div class="mesh-gradient"></div>
-
-    <div class="whatsapp-float" onclick="openWhatsApp()">
-        💬
-    </div>
-
     <nav>
         <div class="logo" onclick="showPage('home')">
-            <div class="logo-icon">
-                <img src="Adsız_tasarım__1_-removebg-preview.png" alt="VoxFlow AI" onerror="this.parentElement.innerHTML='⚡'">
-            </div>
+            <div class="logo-icon">⚡</div>
             <span>VoxFlow</span>
         </div>
         <ul class="nav-menu">
@@ -712,113 +216,8 @@
     <div id="home" class="page active">
         <section class="hero">
             <div class="container">
-                <div class="hero-content">
-                    <div>
-                        <div class="hero-badge">
-                            <div class="badge-dot"></div>
-                            <span>N8N TABANLI AI OTOMASYON</span>
-                        </div>
-                        <h1>İşinizi <span class="gradient-text">Yapay Zeka</span> ile Otomatikleştirin</h1>
-                        <p class="hero-description">
-                            N8N tabanlı akıllı otomasyon sistemleri ile müşteri hizmetlerinizi, satış süreçlerinizi ve operasyonlarınızı 7/24 otomatikleştirin. İnsan gücünden tasarruf edin, verimliliği 10x artırın.
-                        </p>
-                        <div class="hero-buttons">
-                            <button class="btn-primary" onclick="openWhatsApp()">Ücretsiz Görüşme →</button>
-                            <button class="btn-secondary" onclick="showPage('pricing')">Fiyatları Gör</button>
-                        </div>
-                        <div class="hero-stats">
-                            <div>
-                                <div class="stat-number">2-5</div>
-                                <div class="stat-label">Gün İçinde Teslim</div>
-                            </div>
-                            <div>
-                                <div class="stat-number">7/24</div>
-                                <div class="stat-label">Kesintisiz Hizmet</div>
-                            </div>
-                            <div>
-                                <div class="stat-number">%80</div>
-                                <div class="stat-label">Zaman Tasarrufu</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="chat-preview">
-                            <div class="chat-header">
-                                <div class="chat-avatar">
-                                    <img src="Adsız_tasarım__1_-removebg-preview.png" alt="VoxFlow Bot" onerror="this.parentElement.innerHTML='⚡'">
-                                </div>
-                                <div>
-                                    <h3>VoxFlow Asistan</h3>
-                                    <div class="chat-status">
-                                        <div class="badge-dot"></div>
-                                        <span>7/24 Aktif</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="message message-bot">
-                                    Merhaba! WhatsApp siparişlerinizi otomatik alıp sisteme işleyebilirim 📦
-                                </div>
-                                <div class="message message-user">
-                                    Telefon karşılama sistemi de var mı?
-                                </div>
-                                <div class="message message-bot">
-                                    Evet! Gelen çağrıları AI sesli asistan ile otomatik karşılıyor, müşteri bilgilerini alıp size iletiyor 📞
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- FEATURES PAGE -->
-    <div id="features" class="page">
-        <section class="features">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-badge">ÖZELLİKLER</div>
-                    <h2>AI Otomasyon Sistemleri</h2>
-                    <p style="font-size: 19px; color: rgba(255,255,255,0.7);">N8N altyapısı ile her sektöre özel çözümler</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📞</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">AI Telefon Karşılama</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Gelen çağrıları yapay zeka ile otomatik karşılayın. Müşteri bilgilerini alın, randevu oluşturun, iletişim detaylarını CRM'e aktarın. 7/24 hiç çağrı kaçırmayın.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">💬</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">WhatsApp Otomasyon</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">WhatsApp üzerinden gelen siparişleri otomatik alın, ödeme linklerini gönderin, kargo takibi yapın. Müşteri mesajlarına anında AI yanıtları ile karşılık verin.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">Potansiyel Müşteri Toplama</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Web sitenizden, sosyal medyadan gelen potansiyel müşterileri otomatik toplayın. Bilgileri kaydedin, takip maillerini gönderin, satış ekibine bildirin.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">Veri Toplama & Raporlama</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Günlük satış raporları, stok durumu, müşteri analizleri otomatik oluşsun. Excel'e, Google Sheets'e veya dashboardunuza aktarılsın.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛒</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">E-Ticaret Otomasyonu</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Sipariş onayları, kargo bildirimleri, ödeme takipleri otomatik gönderilsin. Stok düştüğünde tedarikçiye mail atılsın. Tüm süreci otomatikleştirin.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📅</div>
-                        <h3 style="font-size: 24px; margin-bottom: 15px;">Randevu Yönetim Sistemi</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">Müşteriler WhatsApp veya web sitesinden randevu alsın. Hatırlatma mesajları otomatik gitsin. İptal/değişiklikler otomatik yönetilsin.</p>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 70px;">
-                    <button class="btn-primary" onclick="openWhatsApp()" style="padding: 22px 55px; font-size: 19px;">
-                        Özel Çözüm İsteyin →
-                    </button>
-                </div>
+                <h1>İşinizi Yapay Zeka ile Otomatikleştirin</h1>
+                <button class="btn-primary" onclick="showPage('pricing')">Fiyatları Gör</button>
             </div>
         </section>
     </div>
@@ -827,191 +226,31 @@
     <div id="pricing" class="page">
         <section class="features">
             <div class="container">
-                <div class="section-header">
-                    <div class="section-badge">FİYATLANDIRMA</div>
-                    <h2>Size Uygun Paketi Seçin</h2>
-                    <p style="font-size: 19px; color: rgba(255,255,255,0.7);">Kurulum tek seferlik ödeme. Aylık AI kullanım ücreti ayrıca faturalandırılır.</p>
-                </div>
+                <h2>Fiyatlar</h2>
                 <div class="pricing-grid">
                     <div class="pricing-card">
-                        <h3 style="font-size: 26px;">Temel Chatbot</h3>
-                        <p style="color: rgba(255,255,255,0.6); margin: 10px 0;">Başlangıç paketi</p>
+                        <h3>Temel Chatbot</h3>
                         <div class="price">₺4,500<span>/kurulum</span></div>
-                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 10px 0;">+ ₺750/ay AI kullanım ücreti</p>
-                        <ul class="features-list">
-                            <li>Tek platform (WhatsApp VEYA Web)</li>
-                            <li>30+ özelleştirilmiş senaryo</li>
-                            <li>Otomatik mesaj yanıtlama sistemi</li>
-                            <li>Temel lead toplama formu</li>
-                            <li>2-3 gün teslim</li>
-                            <li>30 gün teknik destek</li>
-                        </ul>
-                        <button class="btn-primary" style="width: 100%;" onclick="openWhatsApp('Temel Chatbot paketi hakkında bilgi almak istiyorum.')">Paket Seç →</button>
-                    </div>
-
-                    <div class="pricing-card popular">
-                        <div class="popular-badge">🔥 EN POPÜLER</div>
-                        <h3 style="font-size: 26px;">Akıllı AI Chatbot</h3>
-                        <p style="color: rgba(255,255,255,0.6); margin: 10px 0;">Tam otomasyon</p>
-                        <div class="price">₺10,499<span>/kurulum</span></div>
-                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 10px 0;">+ ₺1,500/ay AI kullanım ücreti</p>
-                        <ul class="features-list">
-                            <li>WhatsApp + Web + Instagram entegrasyonu</li>
-                            <li>GPT-4 destekli doğal dil işleme</li>
-                            <li>Müşteri bilgilerini otomatik kaydetme</li>
-                            <li>Sipariş alma & ödeme link sistemi</li>
-                            <li>Otomatik randevu yönetimi</li>
-                            <li>Sınırsız mesaj kapasitesi</li>
-                            <li>90 gün teknik destek</li>
-                        </ul>
-                        <button class="btn-primary" style="width: 100%;" onclick="openWhatsApp('Akıllı AI Chatbot paketi hakkında bilgi almak istiyorum.')">Paket Seç →</button>
+                        <button class="btn-primary">Paket Seç →</button>
                     </div>
 
                     <div class="pricing-card">
-                        <h3 style="font-size: 26px;">AI Voice + Chatbot</h3>
-                        <p style="color: rgba(255,255,255,0.6); margin: 10px 0;">Sesli asistan çözümü</p>
+                        <h3>Akıllı AI Chatbot</h3>
+                        <div class="price">₺10,499<span>/kurulum</span></div>
+                        <button class="btn-primary">Paket Seç →</button>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>AI Voice + Chatbot</h3>
                         <div class="price">₺19,500<span>/kurulum</span></div>
-                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 10px 0;">+ ₺3,000/ay AI kullanım ücreti</p>
-                        <ul class="features-list">
-                            <li>AI telefon karşılama sistemi (voice bot)</li>
-                            <li>Türkçe & İngilizce sesli iletişim</li>
-                            <li>Gelen çağrı yönlendirme & kayıt</li>
-                            <li>Otomatik randevu planlama</li>
-                            <li>WhatsApp + Web chatbot dahil</li>
-                            <li>Sınırsız çağrı & mesaj</li>
-                            <li>6 ay teknik destek</li>
-                        </ul>
-                        <button class="btn-primary" style="width: 100%;" onclick="openWhatsApp('AI Voice + Chatbot paketi hakkında bilgi almak istiyorum.')">Paket Seç →</button>
+                        <button class="btn-primary">Paket Seç →</button>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-
-    <!-- CONTACT PAGE -->
-    <div id="contact" class="page">
-        <section class="features">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-badge">İLETİŞİM</div>
-                    <h2>Hemen Başlayalım</h2>
-                    <p style="font-size: 19px; color: rgba(255,255,255,0.7);">Size özel bir otomasyon planı hazırlayalım</p>
-                </div>
-                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <div style="background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 60px; margin-bottom: 50px;">
-                        <div style="font-size: 64px; margin-bottom: 20px;">📱</div>
-                        <h3 style="font-size: 32px; margin-bottom: 20px;">WhatsApp İletişim</h3>
-                        <p style="color: rgba(255,255,255,0.8); font-size: 24px; font-weight: 600; margin-bottom: 10px;">+90 544 481 95 34</p>
-                        <p style="color: rgba(255,255,255,0.6); margin-bottom: 30px;">7/24 Mesaj Atabilirsiniz</p>
-                        <button class="btn-primary" onclick="openWhatsApp()" style="padding: 20px 50px; font-size: 18px;">
-                            💬 WhatsApp'ta Mesaj Gönder
-                        </button>
-                    </div>
-                    
-                    <div style="background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px;">
-                        <div style="font-size: 48px; margin-bottom: 15px;">🏦</div>
-                        <h4 style="font-size: 20px; margin-bottom: 15px;">Banka Bilgileri</h4>
-                        <p style="color: rgba(255,255,255,0.8); font-weight: 600; margin-bottom: 10px;">Dağhan Necati Şengül</p>
-                        <p style="color: rgba(255,255,255,0.6); font-family: 'Space Grotesk', monospace; letter-spacing: 1px; font-size: 16px;">TR75 0006 2001 1620 0006 6377 70</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">
-                        <div class="footer-logo-icon">
-                            <img src="Adsız_tasarım__1_-removebg-preview.png" alt="VoxFlow AI" onerror="this.innerHTML='⚡'">
-                        </div>
-                        <span>VoxFlow</span>
-                    </div>
-                    <p style="color: rgba(255,255,255,0.6); margin: 20px 0; line-height: 1.7;">
-                        N8N tabanlı yapay zeka otomasyon çözümleri ile işletmenizi geleceğe taşıyoruz.
-                    </p>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 20px; font-size: 18px;">Çözümler</h4>
-                    <ul class="footer-links">
-                        <li><a onclick="showPage('features')">WhatsApp Otomasyon</a></li>
-                        <li><a onclick="showPage('features')">AI Telefon Sistemi</a></li>
-                        <li><a onclick="showPage('features')">CRM Entegrasyonu</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 20px; font-size: 18px;">Şirket</h4>
-                    <ul class="footer-links">
-                        <li><a onclick="showPage('pricing')">Fiyatlandırma</a></li>
-                        <li><a onclick="showPage('contact')">İletişim</a></li>
-                        <li><a onclick="openWhatsApp()">WhatsApp</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 20px; font-size: 18px;">İletişim</h4>
-                    <ul class="footer-links">
-                        <li><a onclick="openWhatsApp()">+90 544 481 95 34</a></li>
-                        <li><a>IBAN: TR75...6377 70</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                © 2025 VoxFlow AI. Tüm hakları saklıdır.
-            </div>
-        </div>
-    </footer>
 
     <script>
-        const WHATSAPP_NUMBER = '905444819534';
-
-        const cursorGlow = document.getElementById('cursor-glow');
-        document.addEventListener('mousemove', (e) => {
-            cursorGlow.style.left = e.clientX + 'px';
-            cursorGlow.style.top = e.clientY + 'px';
-        });
-
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-        for (let i = 0; i < 60; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.6,
-                vy: (Math.random() - 0.5) * 0.6,
-                size: Math.random() * 2.5
-            });
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(99, 102, 241, 0.35)';
-            
-            particles.forEach(p => {
-                p.x += p.vx;
-                p.y += p.vy;
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-                
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-            });
-            
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
         function showPage(pageName) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -1020,9 +259,9 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function openWhatsApp(customMessage = '') {
-            const message = customMessage || 'Merhaba! VoxFlow AI otomasyon sistemleri hakkında bilgi almak istiyorum.';
-            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        function openWhatsApp() {
+            const message = 'Merhaba! VoxFlow AI otomasyon sistemleri hakkında bilgi almak istiyorum.';
+            const url = `https://wa.me/905444819534?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
     </script>
